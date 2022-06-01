@@ -1,0 +1,2 @@
+!pwd #for check current direstories
+os.chdir("/content/gdrive/MyDrive/") #is used for goto desire directory
