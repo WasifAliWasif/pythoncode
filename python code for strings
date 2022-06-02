@@ -1,0 +1,6 @@
+concatinate  string with variable
+
+
+for i in range(1,3065):
+  y='.mat'  #string 
+  pathh=(str(i)+y) # integer convert into string and and with other string
