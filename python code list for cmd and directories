@@ -1,2 +1,5 @@
 !pwd #for check current direstories
+
 os.chdir("/content/gdrive/MyDrive/") #is used for goto desire directory
+
+mkdir brain_tumor_dataset  #is used for make new directory
