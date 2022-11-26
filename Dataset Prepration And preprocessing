@@ -1,0 +1,13 @@
+!pip install split-folders
+import splitfolders
+
+splitfolders.ratio("/content/drive/MyDrive/facepalsy_image_dataset", # The location of dataset
+                   output="/content/drive/MyDrive/DIR_SYS_FP_DATASET", # The output location
+                   seed=42, # The number of seed
+                   ratio=(.7, .15, .15), # The ratio of splited dataset
+                   group_prefix=None, # If your dataset contains more than one file like ".jpg", ".pdf", etc
+                   move=False # If you choose to move, turn this into True
+                   )
+                   
+                   
+                   
