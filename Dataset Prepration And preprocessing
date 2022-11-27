@@ -33,12 +33,7 @@ def create_image_folder_dataset(root_path):
                     # "img_array":  datasets.Image()
                   })
   # temp list holding datapoints for creation
-  
- ****************************************************/////////////////////////////////////////////*************************************************************
-                                                                          END  
- ****************************************************/////////////////////////////////////////////*************************************************************
-         
-  img_data_files=[]
+   img_data_files=[]
   label_data_files=[]
  # img_data_pexelval=[]
 
@@ -52,3 +47,14 @@ def create_image_folder_dataset(root_path):
   # create dataset
   ds = datasets.Dataset.from_dict({"img":img_data_files,"label":label_data_files  },features=features)#,"img_array": img_data_pexelval
   return ds
+  
+  
+  
+  #CALL THE MEHOND 
+  train_ds = create_image_folder_dataset("/content/drive/MyDrive/DIR_SYS_FP_DATASET/train") 
+  
+ ****************************************************/////////////////////////////////////////////*************************************************************
+                                                                          END  
+ ****************************************************/////////////////////////////////////////////*************************************************************
+         
+  
