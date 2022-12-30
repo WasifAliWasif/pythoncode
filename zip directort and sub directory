@@ -1,0 +1,10 @@
+import os, zipfile
+
+directory_path =  '/content/drive/MyDrive/DIR_SYS_FP_DATASET'
+for folder in os.listdir(directory_path):
+    zip_file = zipfile.ZipFile('/content/drive/MyDrive/' + folder + '.zip', 'w')
+    for root, dirs, files in os.walk(directory_path+'/'+folder):
+        for file in files:
+            zip_file.write(os.path.join(root, file),file)
+    zip_file.close()
+    
