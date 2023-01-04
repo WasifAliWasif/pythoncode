@@ -10,7 +10,7 @@ splitfolders.ratio("/content/drive/MyDrive/facepalsy_image_dataset", # The locat
                    )
                    
  ****************************************************/////////////////////////////////////////////*************************************************************
- Code For Read Dataset From Using list Directories, Store With label and pixele array in Dictionary 
+                                Code For Read Dataset From Using list Directories, Store With label and pixele array in Dictionary 
  ****************************************************/////////////////////////////////////////////*************************************************************
                    
 #from datasets.features.features import Value
@@ -58,3 +58,40 @@ def create_image_folder_dataset(root_path):
  ****************************************************/////////////////////////////////////////////*************************************************************
          
   
+****************************************************/////////////////////////////////////////////*************************************************************
+                                return x_train,y_train ,x_test, y_test in numpy.ndym dataset 
+****************************************************/////////////////////////////////////////////*************************************************************
+# funtion return a number aganst  directory labe.
+def find_number_label (classname,rootpath): 
+        images_class = os.listdir(rootpath)
+        for count, name in enumerate(images_class):
+            if name == classname: 
+                return count
+                
+                
+def read_dataset_minist_fashion(rootpath):
+    img_data_files=[]
+    label_data_files=[]
+    for images_class in os.listdir(rootpath):
+        for images in os.listdir(os.path.join(rootpath,images_class)):
+            image=os.path.join(rootpath,images_class,images)
+            img = cv2.imread(image, cv2.IMREAD_GRAYSCALE)
+            img = cv2.resize(img, (96, 96), interpolation=cv2.INTER_CUBIC)
+            img = cv2.normalize(img, None, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
+            img_data_files.append(img)
+            label_data_files.append(find_number_label(images_class,rootpath))
+            #plt.imshow(img)
+            #plt.title(find_number_label(images_class,rootpath))
+            #plt.show()
+    x_train = np.array(img_data_files)  
+    y_train = np.array(label_data_files)
+    return x_train, y_train
+    
+    
+x_train, y_train=read_dataset_minist_fashion('/content/drive/MyDrive/Six_class_FacialPalsy/train')
+x_test, y_test=read_dataset_minist_fashion('/content/drive/MyDrive/Six_class_FacialPalsy/test')
+
+****************************************************/////////////////////////////////////////////*************************************************************
+                                                                          END  
+ ****************************************************/////////////////////////////////////////////*************************************************************
+   
