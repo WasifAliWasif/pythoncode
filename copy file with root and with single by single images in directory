@@ -1,0 +1,16 @@
+ import os 
+ import shutil
+ rootpath="/content/drive/MyDrive/crop_faceopalsy_images_dataset"
+ for images_class in os.listdir(rootpath):
+    if images_class=='Normal':
+        src_dir=os.path.join(rootpath,images_class)             ## make dir at destination and copy all files
+        dest_dir='/content/drive/MyDrive/binary_fp/normal'      ## make dir at destination and copy all files              
+        shutil.copytree(src_dir, dest_dir)                      ## make dir at destination and copy all files
+
+    else: 
+        src_dir=os.path.join(rootpath,images_class)
+        for img in os.listdir(src_dir):                               ## copy single file from source to destiantion without  making directory
+          img_src=os.path.join(src_dir,img)                           ## copy single file from source to destiantion without  making directory
+          dest_dir='/content/drive/MyDrive/binary_fp/paralyized/'     ## copy single file from source to destiantion without  making directory
+          img_dest=dest_dir+images_class+img                          ## copy single file from source to destiantion without  making directory
+          shutil.copy(img_src, img_dest)    
