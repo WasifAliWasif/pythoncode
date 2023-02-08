@@ -1,0 +1,32 @@
+###################################################################################################################
+#REMOVE EXTRA FILE AND BALANCE THE DATA
+###################################################################################################################
+
+
+import shutil
+import os
+import random 
+src="/content/drive/MyDrive/fp_data_set_cap_at_six_frame_per_sec/Aug_cap_six_frame_into_six_classes"
+old_dirctories=os.listdir(src) # list classes in folder
+for old_dir in old_dirctories:
+       read_file=os.path.join( src, old_dir)
+       img_in_each_class=len(os.listdir(read_file))
+       imagesss=os.listdir(read_file) #list images in a classs 
+       images=[]
+
+       for img in imagesss:
+           path_of_image=os.path.join(read_file,img) # path of images in a classs 
+           images.append(path_of_image)
+            
+
+       if img_in_each_class > 2040:   #balance number of imagess in a fix number remian are removed
+          print(img_in_each_class)
+          crop_img_num=img_in_each_class-2050
+          print(crop_img_num)
+
+          dele=random.sample(images,crop_img_num) # get the ramon path of files which go to delete
+          print(type(dele))
+          print(len(dele))
+          for i in range(len(dele)):
+             os.remove(dele[i])
+
