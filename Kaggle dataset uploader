@@ -1,0 +1,26 @@
+##########################################################
+#Load Dataset
+##########################################################
+! pip install -q kaggle
+
+from google.colab import files
+
+files.upload()
+
+! pip install -q kaggle
+from google.colab import files
+
+! mkdir ~/.kaggle
+
+! cp kaggle.json ~/.kaggle/
+
+! chmod 600 ~/.kaggle/kaggle.json
+
+! kaggle datasets list
+
+!pwd
+
+!kaggle datasets download -d ashishjangra27/gender-recognition-200k-images-celeba
+
+
+!unzip "/content/gender-recognition-200k-images-celeba.zip"
